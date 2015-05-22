@@ -1,0 +1,2 @@
+
+cardsDB = "cardsDetails.csv"
