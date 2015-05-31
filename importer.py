@@ -12,14 +12,14 @@ try:
     for row in reader:
         print row
         #first line in the csv file should be skipped or deleted
-		
-		#acess each element in each row separetly in the csv file 
+
+        #acess each element in each row separetly in the csv file
         rowLength = len(row)
         print rowLength		
         for i in range(rowLength):
-			print row[i]
-		
+            print row[i]
+
         #sample call to the gimp script		
-			
+
 finally:
     f.close()
