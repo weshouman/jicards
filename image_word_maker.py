@@ -7,17 +7,17 @@ import os.path #file utilities
 
 def image_word_maker(initstr, font, size, color, file) :
 
-#    # Use in case we want to work directly on the given file
-#    if os.path.isfile(file) is True:
-#        img_loaded = pdb.gimp_file_load(file, file)
+    #    # Use in case we want to work directly on the given file
+    #    if os.path.isfile(file) is True:
+    #        img_loaded = pdb.gimp_file_load(file, file)
 
-#        WIDTH = img_loaded.width
-#        HEIGHT = img_loaded.height
+    #        WIDTH = img_loaded.width
+    #        HEIGHT = img_loaded.height
 
-#        layer0 = gimp.Layer(img_loaded, "loaded image", WIDTH, HEIGHT,
-#                            RGB_IMAGE, 100, NORMAL_MODE)
-#        img_loaded.add_layer(layer0, 1)
-#        gimp.Display(img_loaded)
+    #        layer0 = gimp.Layer(img_loaded, "loaded image", WIDTH, HEIGHT,
+    #                            RGB_IMAGE, 100, NORMAL_MODE)
+    #        img_loaded.add_layer(layer0, 1)
+    #        gimp.Display(img_loaded)
 
     # Make a new image. Size 10x10 for now -- we'll resize later.
     img = gimp.Image(1, 1, RGB)
@@ -58,7 +58,7 @@ def image_word_maker(initstr, font, size, color, file) :
 
         split_file = os.path.splitext(file)
         file_new = split_file[0] + '2' + split_file[1]
-	# a debugging print
+        # a debugging print
         #pdb.gimp_message(file_new)
 
         # Save into a file
