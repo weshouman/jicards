@@ -5,11 +5,11 @@
 from gimpfu import *
 import os.path #file utilities
 
-def image_word_maker(initstr, font, size, color, file) :
+def image_word_maker(initstr, font, size, color, infile) :
 
     #    # Use in case we want to work directly on the given file
-    #    if os.path.isfile(file) is True:
-    #        img_loaded = pdb.gimp_file_load(file, file)
+    #    if os.path.isfile(infile) is True:
+    #        img_loaded = pdb.gimp_file_load(infile, infile)
 
     #        WIDTH = img_loaded.width
     #        HEIGHT = img_loaded.height
@@ -45,27 +45,27 @@ def image_word_maker(initstr, font, size, color, file) :
     img.add_layer(background, 1)
 
     # Sanity check for file existance
-    if os.path.isfile(file) is True:
-        layer2 = pdb.gimp_file_load_layer(img, file)
+    if os.path.isfile(infile) is True:
+        layer2 = pdb.gimp_file_load_layer(img, infile)
         pdb.gimp_image_insert_layer(img, layer2, None, 0)
 
         ## saving into a file
         # Duplicate into a new tmp image and 
-        new_image = pdb.gimp_image_duplicate(img)
+        outimage = pdb.gimp_image_duplicate(img)
 
         # Merge layers
-        layer = pdb.gimp_image_merge_visible_layers(new_image, CLIP_TO_IMAGE)
+        layer = pdb.gimp_image_merge_visible_layers(outimage, CLIP_TO_IMAGE)
 
-        split_file = os.path.splitext(file)
-        file_new = split_file[0] + '2' + split_file[1]
+        split_file = os.path.splitext(infile)
+        outfile = split_file[0] + '2' + split_file[1]
         # a debugging print
-        #pdb.gimp_message(file_new)
+        #pdb.gimp_message(outfile)
 
         # Save into a file
-        pdb.gimp_file_save(new_image, layer, file_new, file_new)
+        pdb.gimp_file_save(outimage, layer, outfile, outfile)
 
         # Delete new image
-        pdb.gimp_image_delete(new_image)
+        pdb.gimp_image_delete(outimage)
 
     # Create a new image window
     gimp.Display(img)
