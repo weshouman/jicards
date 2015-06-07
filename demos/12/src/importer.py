@@ -13,7 +13,7 @@ try:
         print row
         #first line in the csv file should be skipped or deleted
 
-        #acess each element in each row separetly in the csv file
+        #access each element in each row separetly in the csv file
         rowLength = len(row)
         print rowLength		
         for i in range(rowLength):
